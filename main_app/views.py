@@ -12,5 +12,5 @@ def home(request):
 def add_widget(request):
     form = WidgetForm(request.POST)
     if form.is_valid():
-        Widget.objects.create(form)
+        form.save()
     return redirect('home')

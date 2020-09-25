@@ -15,15 +15,20 @@
     {% if widgets|length != 0 %}
     <table class="pure-table pure-table-striped">
         <thead>
-            <tr>Quantity</tr>
-            <tr>Description</tr>
-            <tr>Delete</tr>
+            <tr>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
         </thead>
         <tbody>
             {% for widget in widgets %}
-            <td>{{ widget.quantity }}</td>
-            <td>{{ widget.description }}</td>
-            <td>X</td>
+            <tr>
+                <td>{{ widget.quantity }}</td>
+                <td>{{ widget.description }}</td>
+                <td><a href="">X</a></td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
     {% else %}
