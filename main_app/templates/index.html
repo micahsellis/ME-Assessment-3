@@ -26,9 +26,14 @@
             <tr>
                 <td>{{ widget.quantity }}</td>
                 <td>{{ widget.description }}</td>
-                <td><a href="">X</a></td>
+                <td><a href="{% url 'widget_delete' widget.id %}">X</a></td>
             </tr>
             {% endfor %}
+            <tr>
+                <th>Total Quantity</th>
+                <th>{{widget_total}}</th>
+                <th></th>
+            </tr>
         </tbody>
     </table>
     {% else %}
