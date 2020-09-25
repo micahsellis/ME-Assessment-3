@@ -13,19 +13,28 @@
 <body>
     <h1>Wacky Widget</h1>
     {% if widgets|length != 0 %}
-    <table>
+    <table class="pure-table pure-table-striped">
         <thead>
-            <tr>Description</tr>
             <tr>Quantity</tr>
+            <tr>Description</tr>
             <tr>Delete</tr>
         </thead>
         <tbody>
-
+            {% for widget in widgets %}
+            <td>{{ widget.quantity }}</td>
+            <td>{{ widget.description }}</td>
+            <td>X</td>
         </tbody>
     </table>
     {% else %}
     <h3>No Widgets Exist</h3>
     {% endif %}
     <hr>
+    <h4>Add Widget</h4>
+    <form class="pure-form" action="{% url 'add_widget' %}" method="post">
+        {% csrf_token %}
+        {{ widget_form.as_p }}
+        <input type="submit" class="pure-button" value="Add Widget">
+    </form>
 </body>
 </html>
